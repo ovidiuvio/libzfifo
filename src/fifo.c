@@ -27,7 +27,7 @@
 #include "fifo.h"
 
 #define PRIVATE static
-#define PUBLIC	FIFO_API
+#define PUBLIC  FIFO_API
 
 typedef
 struct fifo_node_t
@@ -36,14 +36,14 @@ struct fifo_node_t
     fifo_elm_t elm;
 
     /* next ptr */
-    struct fifo_node_t* next;	
+    struct fifo_node_t* next;   
 } fifo_node_t;
 
 typedef
 struct fifo_ctx_t
 {
     /* public fifo */
-    fifo_t		 fifo;
+    fifo_t       fifo;
 
     /* head & tail */
     fifo_node_t* head;
@@ -51,7 +51,7 @@ struct fifo_ctx_t
     fifo_node_t* tail;
     
     /* size */
-    uint32_t	 size;
+    uint32_t     size;
 } fifo_ctx_t;
 
 static int32_t fifo_clear(IN fifo_t* fifo);
@@ -65,7 +65,7 @@ PUBLIC
 fifo_t* 
 FIFO_CALL
 fifo_init()
-{	
+{   
     fifo_ctx_t* ctx = (fifo_ctx_t*)calloc(1, sizeof(fifo_ctx_t));
 
     // check if allocation failed
