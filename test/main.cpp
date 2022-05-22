@@ -40,6 +40,8 @@ TEST(FIFO, EnqueueDequeue) {
 			ASSERT_EQ(FIFO_ST_OK, elm->free(&elm));
 		}
 	}
+
+	fifo_destroy(&fifo);
 }
 
 TEST(FIFO, EnqueueDequeueStringsCopy) {
@@ -64,6 +66,8 @@ TEST(FIFO, EnqueueDequeueStringsCopy) {
 			ASSERT_EQ(FIFO_ST_OK, elm->free(&elm));
 		}
 	}
+
+	fifo_destroy(&fifo);
 }
 
 TEST(FIFO, EnqueueDequeueStringsReference) {
@@ -88,6 +92,14 @@ TEST(FIFO, EnqueueDequeueStringsReference) {
 			ASSERT_EQ(FIFO_ST_OK, elm->free(&elm));
 		}
 	}
+
+	fifo_destroy(&fifo);
+}
+
+TEST(FIFO, Destroy) {
+	fifo_t* fifo = fifo_init();
+	
+	fifo_destroy(&fifo);
 }
  
 int main(int argc, char **argv) {
