@@ -10,7 +10,7 @@ setup-job:
   stage: setup
   script:
     - echo "Installing dependencies ..."
-    - sudo apt update && apt install meson ninja-build libgtest-dev
+    - apt update && apt install meson ninja-build libgtest-dev
 
 build-job: 
   stage: build
