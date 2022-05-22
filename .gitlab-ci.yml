@@ -1,26 +1,17 @@
 default:
   image: ubuntu:22.04
 
-stages:
-  - setup     
-  - build
-  - test
+stages:    
+  - run
 
 setup-job:
-  stage: setup
+  stage: run
   script:
     - echo "Installing dependencies ..."
     - apt update && apt install -y meson ninja-build libgtest-dev
-
-build-job: 
-  stage: build
-  script:
     - echo "Compiling the code..."
     - meson build
     - ninja -C build
-
-unit-test-job:
-  stage: test
-  script:
     - echo "Running unit tests..."
     - build/test/fifo_test
+    
